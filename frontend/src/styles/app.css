@@ -1,0 +1,598 @@
+:root {
+  --bg-main: #050505;
+  --bg-elevated: #0e0e0e;
+  --bg-panel: #121212;
+  --bg-panel-soft: #1a1a1a;
+  --bg-hover: #262626;
+  --text-main: #ffffff;
+  --text-strong: #f4f4f4;
+  --text-soft: #b3b3b3;
+  --green: #1ed760;
+  --green-strong: #1db954;
+  --danger: #ff9d9d;
+  --success: #93f2b4;
+  --border-soft: rgba(255, 255, 255, 0.09);
+  --shadow-lg: 0 22px 55px rgba(0, 0, 0, 0.45);
+  font-family: 'Circular Std', 'Montserrat', 'Segoe UI', sans-serif;
+  color: var(--text-main);
+  background: var(--bg-main);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  line-height: 1.45;
+  letter-spacing: 0.01em;
+  background:
+    radial-gradient(circle at top left, rgba(30, 215, 96, 0.2), transparent 42%),
+    radial-gradient(circle at 80% 0%, rgba(39, 39, 39, 0.75), transparent 44%),
+    radial-gradient(circle at 0% 100%, rgba(24, 50, 40, 0.35), transparent 38%),
+    var(--bg-main);
+  color: var(--text-main);
+}
+
+h1,
+h2,
+h3,
+h4,
+p {
+  margin: 0;
+}
+
+button,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  transition: transform 140ms ease, filter 140ms ease, background-color 140ms ease;
+}
+
+button:hover {
+  filter: brightness(1.05);
+}
+
+button:active {
+  transform: translateY(1px);
+}
+
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid rgba(30, 215, 96, 0.8);
+  outline-offset: 2px;
+}
+
+.muted {
+  color: var(--text-soft);
+}
+
+.success {
+  color: var(--success);
+}
+
+.error {
+  color: var(--danger);
+}
+
+.status-stack {
+  display: grid;
+  gap: 0.35rem;
+  margin-top: 0.3rem;
+}
+
+.auth-shell {
+  min-height: 100vh;
+  width: min(1180px, 94vw);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: clamp(1rem, 2.8vw, 2.2rem);
+  align-items: center;
+  padding: clamp(0.9rem, 2vw, 1.6rem) 0;
+}
+
+.auth-hero {
+  padding: clamp(0.8rem, 2vw, 2rem);
+}
+
+.auth-badge {
+  display: inline-block;
+  margin-bottom: 1rem;
+  padding: 0.42rem 0.82rem;
+  border-radius: 999px;
+  background: rgba(30, 215, 96, 0.2);
+  color: var(--green);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 0.76rem;
+}
+
+.auth-hero h1 {
+  font-size: clamp(2.25rem, 6vw, 4.4rem);
+  line-height: 0.98;
+  color: var(--text-strong);
+}
+
+.auth-hero p {
+  margin-top: 0.85rem;
+  max-width: 34ch;
+  color: var(--text-soft);
+  font-size: 1.02rem;
+}
+
+.auth-panel {
+  background: linear-gradient(165deg, rgba(30, 30, 30, 0.95), rgba(13, 13, 13, 0.98));
+  border: 1px solid var(--border-soft);
+  border-radius: 22px;
+  padding: clamp(1rem, 2.3vw, 1.6rem);
+  box-shadow: var(--shadow-lg);
+}
+
+.auth-card {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.auth-title {
+  font-size: 1.35rem;
+  color: var(--text-main);
+}
+
+.auth-subtitle {
+  color: var(--text-soft);
+  font-size: 0.92rem;
+}
+
+.tabs {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.tab {
+  border: 1px solid var(--border-soft);
+  background: var(--bg-panel-soft);
+  color: var(--text-soft);
+  border-radius: 999px;
+  padding: 0.56rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.tab.active {
+  color: #061107;
+  background: var(--green);
+  border-color: transparent;
+}
+
+.form {
+  display: grid;
+  gap: 0.82rem;
+}
+
+label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  color: #d8d8d8;
+}
+
+input,
+textarea,
+select {
+  width: 100%;
+  border-radius: 11px;
+  border: 1px solid var(--border-soft);
+  background: #0d0d0d;
+  color: var(--text-main);
+  padding: 0.64rem 0.78rem;
+}
+
+.primary-action,
+.load-more-btn,
+.header-pill {
+  border: none;
+  border-radius: 999px;
+  padding: 0.66rem 1.03rem;
+  background: var(--green);
+  color: #071108;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.primary-action:disabled,
+.load-more-btn:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
+
+.spotify-shell {
+  width: min(1500px, 96vw);
+  margin: 0 auto;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 286px 1fr;
+  gap: 0.95rem;
+  padding: 0.95rem;
+}
+
+.spotify-sidebar {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: 22px;
+  padding: 1rem;
+  display: grid;
+  align-content: space-between;
+  gap: 1rem;
+  position: sticky;
+  top: 0.95rem;
+  height: calc(100vh - 1.9rem);
+}
+
+.brand-block {
+  display: flex;
+  gap: 0.8rem;
+  align-items: center;
+}
+
+.brand-block h1 {
+  font-size: 1.3rem;
+  letter-spacing: 0.01em;
+}
+
+.brand-block p {
+  margin-top: 0.15rem;
+  color: var(--text-soft);
+  font-size: 0.84rem;
+}
+
+.spotify-dot {
+  width: 18px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #a8ffdc, var(--green));
+  box-shadow: 0 0 18px rgba(30, 215, 96, 0.5);
+}
+
+.sidebar-nav {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.nav-item {
+  border: 1px solid transparent;
+  background: transparent;
+  color: var(--text-soft);
+  border-radius: 10px;
+  text-align: left;
+  padding: 0.58rem 0.72rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.nav-item:hover {
+  background: var(--bg-hover);
+  color: var(--text-main);
+}
+
+.nav-item.active {
+  background: #1f1f1f;
+  color: var(--text-main);
+  border-color: var(--border-soft);
+}
+
+.sidebar-user {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 0.85rem;
+}
+
+.sidebar-user p {
+  font-weight: 700;
+}
+
+.sidebar-user span {
+  color: var(--text-soft);
+  font-size: 0.78rem;
+  letter-spacing: 0.06em;
+}
+
+.spotify-main {
+  background: linear-gradient(180deg, #191919 0%, #101010 100%);
+  border: 1px solid var(--border-soft);
+  border-radius: 22px;
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  min-height: calc(100vh - 1.9rem);
+}
+
+.spotify-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.spotify-header h2 {
+  font-size: 1.8rem;
+  color: var(--text-strong);
+}
+
+.spotify-header p {
+  margin-top: 0.28rem;
+}
+
+.header-actions {
+  display: flex;
+  gap: 0.55rem;
+  flex-wrap: wrap;
+}
+
+.header-pill.ghost {
+  background: #2d2d2d;
+  color: var(--text-main);
+}
+
+.artist-studio {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.studio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.82rem;
+  margin-top: 0.65rem;
+}
+
+.studio-form {
+  background: #151515;
+  border: 1px solid var(--border-soft);
+  border-radius: 12px;
+  padding: 0.9rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.studio-form h4 {
+  color: var(--text-strong);
+}
+
+.spotify-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.section-card {
+  background: var(--bg-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.7rem;
+  margin-bottom: 0.75rem;
+}
+
+.section-head h3 {
+  color: var(--text-strong);
+}
+
+.section-head span {
+  color: var(--text-soft);
+  font-size: 0.86rem;
+}
+
+.track-list,
+.album-list,
+.album-track-list {
+  display: grid;
+  gap: 0.65rem;
+}
+
+.track-card {
+  border: 1px solid var(--border-soft);
+  background: #171717;
+  border-radius: 12px;
+  padding: 0.74rem;
+  display: grid;
+  gap: 0.62rem;
+}
+
+.track-card.compact {
+  background: #131313;
+}
+
+.track-top {
+  display: grid;
+  grid-template-columns: 42px 1fr auto;
+  gap: 0.65rem;
+  align-items: center;
+}
+
+.track-cover {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #1ed760, #0f8f3e);
+  color: #041108;
+  font-weight: 800;
+}
+
+.track-meta {
+  display: grid;
+  gap: 0.18rem;
+}
+
+.track-meta strong {
+  font-size: 0.97rem;
+}
+
+.track-tag {
+  border: 1px solid rgba(30, 215, 96, 0.4);
+  color: var(--green);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border-radius: 999px;
+  padding: 0.2rem 0.5rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.track-card audio {
+  width: 100%;
+}
+
+.album-chip {
+  border: 1px solid var(--border-soft);
+  background: #171717;
+  color: var(--text-main);
+  border-radius: 12px;
+  padding: 0.6rem;
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 0.7rem;
+  align-items: center;
+  text-align: left;
+  cursor: pointer;
+}
+
+.album-chip:hover {
+  background: #1d1d1d;
+}
+
+.album-meta p {
+  margin-top: 0.14rem;
+}
+
+.album-art {
+  width: 52px;
+  aspect-ratio: 1;
+  border-radius: 10px;
+  background:
+    linear-gradient(150deg, rgba(30, 215, 96, 0.9), rgba(8, 84, 38, 0.9)),
+    radial-gradient(circle at 30% 30%, #89ffd0, transparent 45%);
+}
+
+.album-detail {
+  margin-top: 0.78rem;
+  border-top: 1px solid var(--border-soft);
+  padding-top: 0.78rem;
+  display: grid;
+  gap: 0.6rem;
+}
+
+.player-bar {
+  margin-top: auto;
+  border: 1px solid var(--border-soft);
+  background: var(--bg-elevated);
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.player-bar p {
+  margin-top: 0.2rem;
+}
+
+.player-lights {
+  display: flex;
+  gap: 0.35rem;
+}
+
+.player-lights span {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--green);
+  opacity: 0.92;
+}
+
+.player-lights span:nth-child(2) {
+  opacity: 0.62;
+}
+
+.player-lights span:nth-child(3) {
+  opacity: 0.35;
+}
+
+@media (max-width: 1100px) {
+  .spotify-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .spotify-sidebar {
+    position: static;
+    height: auto;
+    align-content: start;
+  }
+
+  .spotify-grid,
+  .studio-grid,
+  .auth-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .spotify-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .spotify-shell {
+    width: 100%;
+    padding: 0.65rem;
+  }
+
+  .spotify-main,
+  .spotify-sidebar,
+  .section-card,
+  .artist-studio {
+    border-radius: 14px;
+  }
+
+  .track-top {
+    grid-template-columns: 38px 1fr;
+  }
+
+  .track-tag {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+
+  .header-actions {
+    width: 100%;
+  }
+
+  .header-pill {
+    flex: 1;
+    text-align: center;
+  }
+}
